@@ -9,23 +9,17 @@
 import UIKit
 
 class MemeCell: UICollectionViewCell {
-    
-    // -----------------------------------
-    // Step 1
-    // TODO: Connect imageView and label outlets from `Meme.xib`.
-    // -----------------------------------
 
+    @IBOutlet var image: UIImageView!
+    @IBOutlet var name: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    
     public func configure(with model: MemeModel) {
-        // -----------------------------------
-        // Step 2
-        // TODO: Setup cell with for a MemeModel that contains and image and name.
-        // -----------------------------------
+        image.image = model.image
+        name.text = model.name
     }
-
 }

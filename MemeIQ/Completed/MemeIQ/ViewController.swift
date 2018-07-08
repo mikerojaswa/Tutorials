@@ -19,29 +19,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // -----------------------------------
-        // Step 3
-        // TODO: Add data source and delegate to collection view.
-        // -----------------------------------
-        
-        // -----------------------------------
-        // Step 4
-        // TODO: Register the MemeCells.
-        // -----------------------------------
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib.init(nibName: "MemeCell", bundle: nil), forCellWithReuseIdentifier: "MemeCell")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // -----------------------------------
-        // Step 5
-        // TODO: Add number of items.
-        // -----------------------------------
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // -----------------------------------
-        // Step 6
-        // TODO: Return the cell for each section.
-        // -----------------------------------
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCell", for: indexPath) as! MemeCell
+        cell.configure(with: data[indexPath.row])
+        return cell
     }
 }
 
